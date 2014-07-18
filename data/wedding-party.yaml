@@ -1,0 +1,50 @@
+ladies:
+  - name: Kelly MacConnell
+    role: Maid (matron) of honor
+    image: http://api.adorable.io/avatar/kellym.png
+
+  - name: Kelly Pensinger
+    role: Bridesmaid
+    image: http://api.adorable.io/avatar/kellyp.png
+
+  - name: Meredith Askey
+    role: Bridesmaid
+    image: http://api.adorable.io/avatar/meredith.png
+
+  - name: Stephanie Golden
+    role: Bridesmaid
+    image: http://api.adorable.io/avatar/stephanie.png
+
+  - name: Ginny Schwartzer
+    role: Bridesmaid
+    image: http://api.adorable.io/avatar/ginny.png
+
+  - name: Shawn Lamons
+    role: Bridesmaid
+    image: http://api.adorable.io/avatar/shawn.png
+
+
+dudes:
+  - name: Shayne Duncan
+    role: Best Man
+    image: http://api.adorable.io/avatar/shayne.png
+
+  - name: Chris Altman
+    role: Groomsman
+    image: http://api.adorable.io/avatar/chrisaltman.png
+
+  - name: Ted O'Meara
+    role: Groomsman
+    image: http://api.adorable.io/avatar/tedomear.png
+
+  - name: Tyler Kelley
+    role: Groomsman
+    image: http://api.adorable.io/avatar/tyler.png
+
+  - name: Reed MacConnell
+    role: Groomsman
+    image: http://api.adorable.io/avatar/reed.png
+
+  - name: Michael Parenteau
+    role: Groomsman
+    image: http://api.adorable.io/avatar/michael.png

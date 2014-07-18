@@ -1,0 +1,463 @@
++selection() {
+  color: #fff;
+  background-color: rgba(60, 184, 120, 0.99);
+}
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: background-color-primary;
+  font-size: 16px;
+  line-height: 1.2;
+
+  &.scrolled {
+    navigation {
+      background: rgba(background-color-primary, .98);
+      position: fixed;
+      a { color: menu-text-color; }
+    }
+  }
+
+  &.open {
+    navigation {
+      height: 100%;
+      background: rgba(background-color-secondary, .98);
+    }
+  }
+}
+
+.main {}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: .75em 0 .75em;
+}
+
+a {
+  transition: all .3s ease;
+  color: link-color-primary;
+  text-decoration: none;
+  &:hover {
+    color: text-color-primary-hover;
+  }
+  &.anchor {
+    display: block;
+    position: relative;
+    top: -2.9em;
+    visibility: hidden;
+  }
+}
+
+//
+// NAVIGATION
+// ******************************************************************
+navigation {
+  transition: all .3s ease;
+  position: absolute;
+  background:  transparent;
+  display: block;
+  text-align: center;
+  height: 60px;
+  overflow: hidden;
+  padding: 0.8em 0 1em;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+
+  [class^='icon-'] {
+    position: relative;
+    &:before {
+      font-size: 36px;
+      position: absolute;
+      left: -40px;
+      top: -5px;
+    }
+  }
+
+  .menu {
+    inline-icon: 'hamburger';
+    display: block;
+    font-size: 1.6em;
+    text-align: right;
+    margin-right: 20px;
+    span { display: none; }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      display: block;
+      margin: 0.5em 1em;
+      &:last-child { margin-right: 0; }
+      a {
+        font-family: header-font;
+        font-size: 1.4em;
+        font-weight: 300;
+        display: block;
+        padding: 5px 20px 5px 50px;
+        color: white;
+        box-shadow: 0 0 0 1px transparent;
+        &:hover {
+          background: menu-background-color-hover;
+          color: menu-text-color-hover;
+          box-shadow: 0 0 0 1px menu-border-color-hover;
+        }
+      }
+    }
+  }
+
+  @media medium-up {
+
+    padding: 0.5em 0.8em;
+
+    height: auto;
+
+    .menu { display: none; }
+
+    navigation {
+      height: auto;
+    }
+    ul {
+      height: auto;
+      opacity: 1;
+      li { display: inline-block; }
+    }
+
+  }
+}
+
+
+//
+// HEADER
+// ******************************************************************
+
+header {
+  background-image: url('/assets/img/us.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  text-align: center;
+  padding-top: 300px;
+  padding-bottom: 200px;
+
+  h1 {
+    color: header-text-color;
+    font-size: 3em;
+    font-weight: 200;
+    padding-bottom: 0;
+  }
+
+  h2 {
+    font-size: 1em;
+    font-style: italic;
+    widows: 1;
+    orphans: 1;
+  }
+  @media medium-up {
+    h1 { font-size: 6em; }
+  }
+}
+
+section(background-color, text-color) {
+  background-color: background-color;
+  h1, h2, h3, h4, p, & {
+    color: text-color;
+    border-color: rgba(text-color, .05);
+  }
+}
+
+.sub-header {
+  section(background-color-primary, text-color-primary);
+  .wrapper { padding: 20px; }
+
+  img {
+    width: 100%;
+    max-width: 100px;
+  }
+
+  h2 {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: .5em;
+    font-size: 1.2em;
+    line-height: 1;
+  }
+
+  p {
+    font-size: .85em;
+    line-height: 1.5em;
+  }
+
+  @media medium-up {
+    img { max-width: 100%; }
+    h2 { font-size: 2em; }
+    p {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+  }
+}
+
+
+screen-color(color, border-size = 2px) {
+  i:before { color: color; }
+  h3 a {
+    box-shadow: 0 0 0 border-size transparent;
+    color: color;
+    z-index: 300;
+    &:hover {
+      background: color;
+      box-shadow: 0 0 0 border-size color;
+      color: background-color-secondary;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+screen-background-color(color) {
+  background-color: color;
+  &:before {
+    background-color: color;
+  }
+}
+
+
+//
+// Cross Sectional
+// ******************************************************************
+section {
+  padding-bottom: 8em;
+  padding-top: 8em;
+
+  h3:nth-of-type(1) { margin-top: 0; }
+
+  a.button {
+    border-radius: 1000px;
+    box-shadow: 0 0 0 1px link-background-color-primary;
+    color: link-text-color-primary;
+    padding: .25em 1em;
+    font-size: 1.5em;
+    &:hover {
+      box-shadow: 0 0 0 1px link-background-color-primary-hover;
+      background-color: link-background-color-primary-hover;
+      color: link-text-color-primary-hover;
+      padding: .25em 1em;
+    }
+  }
+
+
+  a {
+    display: inline-block;
+    color: link-text-color-primary;
+    &:hover {
+      background: link-background-color-primary-hover;
+      color: link-text-color-primary-hover;
+      padding: 0 10px;
+    }
+  }
+
+}
+
+
+//
+// Hotel
+// ******************************************************************
+.hotel {
+  section(background-color-secondary, text-color-secondary);
+
+  .title {
+
+    .tooltip {
+      transition: right .3s ease, margin .3s ease, opacity .3s ease;
+      opacity: 0;
+      background: background-color-secondary;
+      font-size: .55em;
+      font-family: code-font;
+      position: absolute;
+      margin-left: 160px;
+      right: -160px;
+      top: 0;
+      padding: 10px 20px;
+      bottom: 0;
+      z-index: -1;
+
+      .outer {
+        display: table;
+        width: 100%;
+        height: 100%;
+      }
+
+      .inner {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      &:before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        margin-top: -20px;
+
+        border-left: 20px solid transparent;
+        border-right: 20px solid purple;
+        border-bottom: 20px solid transparent;
+        border-top: 20px solid transparent;
+      }
+    }
+  }
+
+  .title a {
+    &:hover ~ .tooltip {
+      opacity: 1;
+      margin-left: 80px;
+      right: -1px;
+      z-index: 100;
+    }
+    position: relative;
+  }
+}
+
+
+//
+// wedding-party
+// ******************************************************************
+section.wedding-party {
+
+  section(background-color-primary, text-color-primary);
+
+  text-align: center;
+
+  .pleepon {
+    margin-bottom: 2em;
+  }
+  img {
+    border-radius: 1000px;
+    width: 80%;
+  }
+
+  h3 {
+    font-size: 2.4em;
+    margin-bottom: 1em;
+  }
+
+  h4 {
+    color: red;
+    font-size: 2em;
+    font-weight: 100;
+    padding-bottom: .2em;
+  }
+
+  p {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+}
+
+//
+// Connected
+// ******************************************************************
+section.connected {
+  section(background-color-primary, text-color-secondary);
+}
+
+//
+// FAQ
+// ******************************************************************
+section.faq {
+  section(background-color-secondary, text-color-secondary);
+
+  h3 {
+    border-bottom: 1px solid rgba(light-red, .2);
+    color: red;
+    font-size: 2em;
+    font-weight: 100;
+    margin-top: 2em;
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+  }
+
+  p {
+    line-height: 1.6em;
+  }
+}
+
+//
+// things-to-do
+// ******************************************************************
+section.things-to-do {
+  section(background-color-secondary, text-color-secondary);
+
+  h3 {
+    color: light-red;
+    padding: 2em;
+  }
+}
+
+//
+// CONTRIBUTORS
+// ******************************************************************
+section.registry {
+  section(background-color-primary, text-color-primary);
+  padding-top: 8em;
+  .panel {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: red;
+    font-size: 2em;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+  }
+  h4 {
+    color: light-red;
+    border-bottom: 1px solid purple;
+    margin-bottom: 10px;
+  }
+  li {
+    margin-bottom: .5em;
+  }
+  a {
+    color: light-grey;
+    &:hover { color: black; }
+  }
+}
+
+
+//
+// FOOTER
+// ******************************************************************
+
+footer {
+  section(background-color-secondary, text-color-secondary);
+  text-align: center;
+  padding: 20px;
+}
+
+.fa:before {
+  transition: color .3s ease;
+  color: rgba(light-red, 1);
+  font-size: 16px;
+  margin-right: 6px;
+  line-height: 1.25;
+}
+
+input[type=image] {
+  display: block;
+  margin: 0 auto;
+}

@@ -1,0 +1,175 @@
+doctype html
+html
+  head
+    title kevin &lt;3 rachel
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no')
+    link(rel='stylesheet', href='/assets/css/main.css')
+    script(src='/vendor/jquery/dist/jquery.min.js')
+  body
+    a#top.anchor
+
+    navigation
+      a.menu
+        span Menu
+      ul
+        li
+          a(href="#top")
+            i.icon-home
+            | Home
+        li
+          a(href="#hotel")
+            i.icon-hotel
+            | Hotel
+        li
+          a(href="#things-to-do")
+            i.icon-things-to-do
+            | Things to Do
+        li
+          a(href="#wedding-party")
+            i.icon-wedding-party
+            | Wedding Party
+        li
+          a(href="#registry")
+            i.icon-registry
+            | Registry
+
+    .main
+      header
+        .wrapper
+          .row
+            .small-12.medium-9.small-center.columns
+              img(src="/assets/img/logo.png")
+        .row
+          .small-6.columns
+            h2 Date
+            ul.no-bullet
+              li Saturday, November 15, 2014
+              li Ceremony starts at 6:30 p.m.
+
+          .small-6.columns
+            h2 Location
+            ul.no-bullet
+              li The Cotton Room
+              li 807 E Main St
+              li Durham, NC 27701
+              li http://www.thecottonroomdurham.com/
+              li https://goo.gl/maps/230tL
+
+      content
+
+        //- SECTION: HOTEL
+        a#hotel.anchor
+        section.hotel
+          //- section header
+          .row
+            .small-12.medium-12.columns.text-center
+              h2
+                i.icon-hotel
+                | Hotel Block
+          .row
+            .small-12.medium-10.small-center.columns
+              ul.no-bullet
+                li Marriott Durham City Center
+                li 201 Foster St
+                li Durham, NC 27701
+                li http://www.marriott.com/hotels/travel/rducv-durham-marriott-city-center/
+
+              p We have a room block reserved at a discounted rate of $121 + tax per night
+              h3 To book within the block:
+              ul
+                li Call (800) 909 8375 and ask to book under the Rooney-Altman Guest block
+                li -Use this link: Book your group rate: Rooney-Altman Wedding Gst Blk
+                li *Rooms must be booked by 10/24 to receive the rate.
+
+        //- SECTION: wedding party
+        a#wedding-party.anchor
+        section.wedding-party
+          //- section header
+          .row
+            .small-12.medium-10.columns.small-center.text-center
+              h2
+                i.icon-wedding-party
+                | The Wedding Party
+
+          .row
+            .small-12.columns
+              h3 Ladies
+
+          .row
+            //- Module
+            | {{#each weddingParty.ladies}}
+            .small-12.medium-4.columns
+              .pleepon
+                img(src="{{image}}")
+                h4.title {{name}}
+                p {{role}}
+            | {{/each}}
+
+          .row
+            .small-12.columns
+              h3 Dudes
+
+          .row
+            //- Module
+            | {{#each weddingParty.dudes}}
+            .small-12.medium-4.columns
+              .pleepon
+                img(src="{{image}}")
+                h4.title {{name}}
+                p {{role}}
+            | {{/each}}
+
+
+        //- SECTION: SCREENSHOTS
+        a#things-to-do.anchor
+        section.things-to-do
+          //- section header
+          .row
+            .small-12.medium-10.columns.small-center.text-center
+              h2
+                i.icon-diamond
+                | Things to do
+
+              //- include:md ../data/screenshots.md
+
+
+        //- SECTION: REGISTERY
+        a#registry.anchor
+        section.registry
+          //- section header
+          .row
+            .small-12.columns.text-center
+              h2
+                i.icon-contribute
+                | Registry
+          .row
+            //- Location
+            .small-12.medium-6.columns.text-center
+              .panel
+                h3 Williams-Sonoma
+                p https://secure.williams-sonoma.com/registry/dsrvrg96w7/registry-list.html
+
+            //- Location
+            .small-12.medium-6.columns.text-center
+              .panel
+                h3 Honeyfund
+                p http://www.honeyfund.com/wedding/kevinplusrachel
+
+
+
+
+      footer
+        p awesome.
+
+    script(src='/assets/js/app.js')
+    script(type='text/javascript', src='//use.typekit.net/sxr1eag.js')
+    script.
+      //- teepskwat
+      try{Typekit.load();}catch(e){}
+      //- giggle
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-51903057-1', 'vikinghug.com');
+      ga('send', 'pageview');
