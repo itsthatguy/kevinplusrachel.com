@@ -11,10 +11,6 @@ ladies:
     role: Bridesmaid
     image: http://api.adorable.io/avatar/meredith.png
 
-  - name: Stephanie Golden
-    role: Bridesmaid
-    image: http://api.adorable.io/avatar/stephanie.png
-
   - name: Ginny Schwartzer
     role: Bridesmaid
     image: http://api.adorable.io/avatar/ginny.png
@@ -22,7 +18,10 @@ ladies:
   - name: Shawn Lamons
     role: Bridesmaid
     image: http://api.adorable.io/avatar/shawn.png
-
+    
+  - name: Stephanie Golden
+    role: Bridesmaid
+    image: http://api.adorable.io/avatar/stephanie.png
 
 dudes:
   - name: Shayne Duncan
