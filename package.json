@@ -42,6 +42,7 @@
     "run-command": "^0.1.1",
     "serve-favicon": "^2.0.1",
     "stylus": "^0.42.3",
+    "underscore": "^1.7.0",
     "win-spawn": "^2.0.0"
   },
   "repository": {
