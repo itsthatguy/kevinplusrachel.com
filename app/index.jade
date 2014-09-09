@@ -17,17 +17,17 @@ html
             i.icon-home
             | Home
         li
-          a(href="#hotel")
+          a(href="#accomodations")
             i.icon-hotel
-            | Hotel
-        li
-          a(href="#things-to-do")
-            i.icon-things-to-do
-            | Things to Do
+            | Accomodations
         li
           a(href="#wedding-party")
             i.icon-wedding-party
             | Wedding Party
+        li
+          a(href="#things-to-do")
+            i.icon-things-to-do
+            | Things to Do
         li
           a(href="#registry")
             i.icon-registry
@@ -42,44 +42,30 @@ html
         .row
           .small-6.columns
             h2 Date
-            ul.no-bullet
-              li Saturday, November 15, 2014
-              li Ceremony starts at 6:30 p.m.
+            include:md ../data/date.md
 
           .small-6.columns
             h2 Location
-            ul.no-bullet
-              li The Cotton Room
-              li 807 E Main St
-              li Durham, NC 27701
-              li http://www.thecottonroomdurham.com/
-              li https://goo.gl/maps/230tL
+            include:md ../data/location.md
 
       content
 
-        //- SECTION: HOTEL
-        a#hotel.anchor
-        section.hotel
+        //- SECTION: Accomodations
+        a#accomodations.anchor
+        section.accomodations
           //- section header
           .row
-            .small-12.medium-12.columns.text-center
+            .small-12.medium-9.small-center.columns.text-center
               h2
                 i.icon-hotel
-                | Hotel Block
-          .row
-            .small-12.medium-10.small-center.columns
-              ul.no-bullet
-                li Marriott Durham City Center
-                li 201 Foster St
-                li Durham, NC 27701
-                li http://www.marriott.com/hotels/travel/rducv-durham-marriott-city-center/
-
-              p We have a room block reserved at a discounted rate of $121 + tax per night
-              h3 To book within the block:
-              ul
-                li Call (800) 909 8375 and ask to book under the Rooney-Altman Guest block
-                li -Use this link: Book your group rate: Rooney-Altman Wedding Gst Blk
-                li *Rooms must be booked by 10/24 to receive the rate.
+                | Accomodations
+              .row
+                .small-12.columns
+                  include:md ../data/accomodations.md
+              .row
+                .small-12.medium-8.small-center.columns
+                  .box
+                    include:md ../data/accomodations-location.md
 
         //- SECTION: wedding party
         a#wedding-party.anchor
@@ -92,45 +78,54 @@ html
                 | The Wedding Party
 
           .row
-            .small-12.columns
+            //- Module
+            .small-6.medium-5.columns
               h3 Ladies
+              .row
+                | {{#each weddingParty.ladies}}
+                .small-12.medium-6.columns
+                  .pleepon
+                    img(src="{{image}}")
+                    h4.title {{name}}
+                    p {{role}}
+                | {{/each}}
 
-          .row
             //- Module
-            | {{#each weddingParty.ladies}}
-            .small-12.medium-4.columns
-              .pleepon
-                img(src="{{image}}")
-                h4.title {{name}}
-                p {{role}}
-            | {{/each}}
 
-          .row
-            .small-12.columns
+            .small-6.medium-5.columns.medium-right
               h3 Dudes
-
-          .row
-            //- Module
-            | {{#each weddingParty.dudes}}
-            .small-12.medium-4.columns
-              .pleepon
-                img(src="{{image}}")
-                h4.title {{name}}
-                p {{role}}
-            | {{/each}}
+              .row
+                | {{#each weddingParty.dudes}}
+                .small-12.medium-6.columns
+                  .pleepon
+                    img(src="{{image}}")
+                    h4.title {{name}}
+                    p {{role}}
+                | {{/each}}
 
 
-        //- SECTION: SCREENSHOTS
+        //- SECTION: THINGS TO DO
         a#things-to-do.anchor
         section.things-to-do
           //- section header
           .row
             .small-12.medium-10.columns.small-center.text-center
               h2
-                i.icon-diamond
+                i.icon-things-to-do
                 | Things to do
 
-              //- include:md ../data/screenshots.md
+              include:md ../data/things-to-do.md
+          .row
+            .small-12.medium-4.text-center.columns
+              .box
+                include:md ../data/things-to-do-durham.md
+            .small-12.medium-4.text-center.columns
+              .box
+                include:md ../data/things-to-do-raleigh.md
+            .small-12.medium-4.text-center.columns
+              .box
+                include:md ../data/things-to-do-cary.md
+
 
 
         //- SECTION: REGISTERY
@@ -140,20 +135,17 @@ html
           .row
             .small-12.columns.text-center
               h2
-                i.icon-contribute
+                i.icon-registry
                 | Registry
           .row
-            //- Location
-            .small-12.medium-6.columns.text-center
-              .panel
-                h3 Williams-Sonoma
-                p https://secure.williams-sonoma.com/registry/dsrvrg96w7/registry-list.html
 
+            | {{#each registry.registrars}}
             //- Location
             .small-12.medium-6.columns.text-center
               .panel
-                h3 Honeyfund
-                p http://www.honeyfund.com/wedding/kevinplusrachel
+                h3 {{{name}}}
+                a.button(href="{{url}}") Check it out
+            | {{/each}}
 
 
 
@@ -162,7 +154,7 @@ html
         p awesome.
 
     script(src='/assets/js/app.js')
-    script(type='text/javascript', src='//use.typekit.net/sxr1eag.js')
+    script(type='text/javascript', src='//use.typekit.net/axl3nuc.js')
     script.
       //- teepskwat
       try{Typekit.load();}catch(e){}

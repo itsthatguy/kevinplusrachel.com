@@ -27,6 +27,7 @@ faviconPath   = path.join(basePath, 'app', 'favicon.ico')
 # Get our data file
 config       = getDataFile('config.yaml')
 weddingParty = getDataFile('wedding-party.yaml')
+registry     = getDataFile('registry.yaml')
 
 
 # Use Basic Auth?
@@ -53,7 +54,12 @@ webserver.on 'listening', ->
 
 # Routes
 app.get '/', (req, res) ->
-  res.render(generatedPath + '/index.html', {data: config, weddingParty: weddingParty})
+  data =
+    data: config
+    weddingParty: weddingParty
+    registry: registry
+
+  res.render(generatedPath + '/index.html', data)
 
 
 

@@ -1,14 +1,6 @@
 * { box-sizing: border-box; }
 
-// grid setup
-total-columns = 12;
-row-width = 1000px;
-column-gutter = 30px;
 
-// Media Query Ranges
-small-range = (0em 40em);
-medium-range = min(40.063em, 64em);
-large-range = min(64.063em, 90em);
 
 screen = "only screen";
 
@@ -46,6 +38,22 @@ build-grid(class = 'small', columns = 12) {
     float: none;
     margin: 0 auto;
   }
+
+  .{class}-right {
+    float: right;
+  }
+
+  .{class}-left {
+    float: left;
+  }
+}
+
+get-column-width(columns, total-columns) {
+  return 1% * ((columns / total-columns) * 100);
+}
+
+add-column(direction, columns) {
+  {direction}: percent-width = 1% * ((i / columns) * 100);
 }
 
 grid-column(columns = 1) {

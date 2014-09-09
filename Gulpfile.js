@@ -11,6 +11,7 @@ var gulp         = require('gulp'),
     rename       = require('gulp-rename'),
     stylus       = require('gulp-stylus'),
     browserify   = require('gulp-browserify'),
+    plumber      = require('gulp-plumber'),
     path         = require('path'),
     marked       = require('marked'),
     colors       = require('colors');
@@ -54,7 +55,10 @@ var watchPaths = {
   coffee: [path.join(baseJsPath, '**', '*.coffee')],
   assets: paths.assetsPaths,
   ejs: paths.ejsPath,
-  jade: paths.jadePath
+  jade: [
+    paths.jadePath,
+    path.join(__dirname, 'data', '*.md')
+  ]
 }
 
 var testFiles = [
@@ -85,6 +89,7 @@ gulp.task('test', function() {
 // Get and render all .styl files recursively
 gulp.task('stylus', function () {
   return gulp.src(paths.cssInput)
+    .pipe(plumber())
     .pipe(stylus()
       .on('error', gutil.log)
       .on('error', gutil.beep))
@@ -98,6 +103,7 @@ gulp.task('stylus', function () {
 
 gulp.task('coffee', function() {
   return gulp.src(paths.coffeeInput, { read: false })
+    .pipe(plumber())
     .pipe(browserify({
       basedir: __dirname,
       transform: ['coffeeify'],
@@ -116,6 +122,7 @@ gulp.task('coffee', function() {
 
 gulp.task('jade', function() {
   return gulp.src(paths.jadePath)
+    .pipe(plumber())
     .pipe(jade({ pretty: true }))
     .pipe(gulp.dest(paths.assetsOutput))
 });
@@ -127,6 +134,7 @@ gulp.task('jade', function() {
 
 gulp.task('ejs', function() {
   return gulp.src(paths.ejsPath)
+    .pipe(plumber())
     .pipe(ejs()
       .on('error', gutil.log)
       .on('error', gutil.beep))
@@ -140,6 +148,7 @@ gulp.task('ejs', function() {
 
 gulp.task('assets', function() {
   return gulp.src(paths.assetsPaths, {base: paths.assetsBasePath})
+    .pipe(plumber())
     .on('error', gutil.log)
     .on('error', gutil.beep)
     .pipe(gulp.dest(paths.assetsOutput));
@@ -168,21 +177,11 @@ gulp.task('watch-pre-tasks', function(callback) {
 //
 gulp.task('watch', function(callback) {
 
-  gulp.watch(watchPaths.css, ['stylus'])
-    .on('error', gutil.log)
-    .on('error', gutil.beep);
-  gulp.watch(watchPaths.coffee, ['coffee'])
-    .on('error', gutil.log)
-    .on('error', gutil.beep);
-  gulp.watch(watchPaths.assets, ['assets'])
-    .on('error', gutil.log)
-    .on('error', gutil.beep);
-  gulp.watch(watchPaths.ejs, ['ejs'])
-    .on('error', gutil.log)
-    .on('error', gutil.beep);
-  gulp.watch(watchPaths.jade, ['jade'])
-    .on('error', gutil.log)
-    .on('error', gutil.beep);
+  gulp.watch(watchPaths.css, ['stylus']);
+  gulp.watch(watchPaths.coffee, ['coffee']);
+  gulp.watch(watchPaths.assets, ['assets']);
+  gulp.watch(watchPaths.ejs, ['ejs']);
+  gulp.watch(watchPaths.jade, ['jade']);
 
   if (livereload) {
     findPort([35729], function(ports) {
