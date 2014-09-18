@@ -35,7 +35,7 @@ body {
 
 hr {
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
 }
 
 h1, h2, h3, h4, h5 {
@@ -66,6 +66,18 @@ a {
   }
 }
 
+$red-button {
+  a.button {
+    color: red;
+    box-shadow: 0 0 0 2px red;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
 //
 // NAVIGATION
 // ******************************************************************
@@ -74,6 +86,7 @@ navigation {
   position: absolute;
   background:  transparent;
   display: block;
+  font-size: 14px;
   text-align: center;
   height: 60px;
   overflow: hidden;
@@ -89,7 +102,7 @@ navigation {
       font-size: 36px;
       position: absolute;
       left: -40px;
-      top: 5px;
+      top: -3px;
     }
   }
 
@@ -154,6 +167,10 @@ section(background-color, text-color) {
   h1, h2, h3, h4, p, & {
     color: text-color;
     border-color: rgba(text-color, .05);
+  }
+  h2.title {
+    font-size: 3em;
+    padding-bottom: 1em;
   }
 }
 
@@ -351,16 +368,47 @@ section.accomodations {
     + p {
       padding-bottom: 0;
     }
+
+    small {
+      font-size: .75em;
+    }
   }
+  hr { margin-bottom: 30px; }
 
   .price {
+    display: inline-block;
     font-size: 2.6em;
+    margin-bottom: .5em;
+    margin: 0;
+    padding: 10px 20px;
+    text-align: center;
+
+    small {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    span {
+      font-size: 0.5em;
+    }
   }
 
   h4 {
     font-size: 1.3em;
     margin-top: 1.5em;
     padding-bottom: 0;
+  }
+
+  .box {
+    h2 { margin-bottom: 0; }
+  }
+  .booking {
+    h2 {
+      font-size: 1.25em;
+    }
+    p:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
   }
 
 
@@ -473,15 +521,7 @@ section.registry {
     font-size: 1.6em;
   }
 
-  a.button {
-    color: red;
-    box-shadow: 0 0 0 2px red;
-    font-size: 1.2em;
-    padding-bottom: 10px;
-    &:hover {
-      color: white;
-    }
-  }
+  @extend $red-button;
 }
 
 //

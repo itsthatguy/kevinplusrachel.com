@@ -55,17 +55,34 @@ html
         section.accomodations
           //- section header
           .row
-            .small-12.medium-9.small-center.columns.text-center
-              h2
+            .small-12.small-center.columns.text-center
+              h2.title
                 i.icon-hotel
-                | Accomodations
-              .row
-                .small-12.columns
-                  include:md ../data/accomodations.md
-              .row
-                .small-12.medium-8.small-center.columns
-                  .box
-                    include:md ../data/accomodations-location.md
+                | Our <small>(discounted)</small> Room Block
+          .row
+            .small-12.medium-5.columns
+              .box
+                include:md ../data/accomodations-location.md
+            .small-12.medium-7.columns.booking
+              .box.white
+                h2 To book within the block
+                hr
+                .row
+                  .small-2.columns.text-left
+                    .text-right CALL
+                  .small-10.columns
+                    .text-left <b>1 800 909 8375</b>
+                .row
+                  .small-2.columns.text-left
+                    .text-right SAY
+                  .small-10.columns.text-left
+                    .text-left.quote
+                      i "I'd like to book under the <b>Rooney-Altman</b> guest block"
+              br
+              .box.white
+                h2 To book online
+                hr
+                p <a href='http://itg.sh/hotel_block' class='button'>Click this button</a>
 
         //- SECTION: wedding party
         a#wedding-party.anchor
@@ -73,7 +90,7 @@ html
           //- section header
           .row
             .small-12.medium-10.columns.small-center.text-center
-              h2
+              h2.title
                 i.icon-wedding-party
                 | The Wedding Party
 
@@ -110,7 +127,7 @@ html
           //- section header
           .row
             .small-12.medium-10.columns.small-center.text-center
-              h2
+              h2.title
                 i.icon-things-to-do
                 | Things to do
 
@@ -134,7 +151,7 @@ html
           //- section header
           .row
             .small-12.columns.text-center
-              h2
+              h2.title
                 i.icon-registry
                 | Registry
           .row
