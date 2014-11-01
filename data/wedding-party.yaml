@@ -1,49 +1,53 @@
 ladies:
   - name: Kelly MacConnell
     role: Maid (matron) of honor
-    image: http://api.adorable.io/avatar/kellym.png
+    image: /assets/img/bridesmaids/kelly_macconnell.jpg
 
   - name: Kelly Pensinger
     role: Bridesmaid
-    image: http://api.adorable.io/avatar/kellyp.png
+    image: /assets/img/bridesmaids/kelly_pensinger.jpg
 
   - name: Meredith Askey
     role: Bridesmaid
-    image: http://api.adorable.io/avatar/meredith.png
+    image: /assets/img/bridesmaids/meredith_askey.jpg
 
   - name: Ginny Schwartzer
     role: Bridesmaid
-    image: http://api.adorable.io/avatar/ginny.png
+    image: /assets/img/bridesmaids/ginny_schwartzer.jpg
 
   - name: Shawn Lamons
     role: Bridesmaid
-    image: http://api.adorable.io/avatar/shawn.png
+    image: /assets/img/bridesmaids/shawn_lamons.jpg
 
   - name: Stephanie Golden
     role: Bridesmaid
-    image: http://api.adorable.io/avatar/stephanie.png
+    image: /assets/img/bridesmaids/stephanie_golden.jpg
 
 dudes:
   - name: Shayne Duncan
     role: Best Man
-    image: http://api.adorable.io/avatar/shayne.png
+    image: /assets/img/groomsmen/anson_duncan.jpeg
 
-  - name: Chris Altman
+  - name: Heath Campbell
     role: Groomsman
-    image: http://api.adorable.io/avatar/chrisaltman.png
+    image: /assets/img/groomsmen/heath_campbell.jpg
 
   - name: Ted O'Meara
     role: Groomsman
-    image: http://api.adorable.io/avatar/tedomear.png
+    image: /assets/img/groomsmen/ted_omeara.jpeg
 
   - name: Tyler Kelley
     role: Groomsman
-    image: http://api.adorable.io/avatar/tyler.png
+    image: /assets/img/groomsmen/tyler_kelley.jpeg
 
   - name: Reed MacConnell
     role: Groomsman
-    image: http://api.adorable.io/avatar/reed.png
+    image: /assets/img/groomsmen/reed_macconnell.jpg
 
   - name: Michael Parenteau
     role: Groomsman
-    image: http://api.adorable.io/avatar/michael.png
+    image: /assets/img/groomsmen/michael_parenteau.jpeg
+
+  - name: Mark Lemmons
+    role: Groomsman
+    image: /assets/img/groomsmen/mark_lemmons.jpg
