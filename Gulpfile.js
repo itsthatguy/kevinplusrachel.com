@@ -19,9 +19,9 @@ var gulp         = require('gulp'),
 var del, livereload, runSequence;
 
 if (process.env.NODE_ENV == "development") {
-  del         = require('del'),
-  livereload  = require('gulp-livereload'),
-  runSequence = require('run-sequence'),
+  del         = require('del');
+  livereload  = require('gulp-livereload');
+  runSequence = require('run-sequence');
   findPort    = require('find-port');
 }
 
@@ -59,7 +59,7 @@ var watchPaths = {
     paths.jadePath,
     path.join(__dirname, 'data', '*.md')
   ]
-}
+};
 
 var testFiles = [
   '.generated/js/app.js',
@@ -84,8 +84,6 @@ gulp.task('test', function() {
 //
 // Stylus
 //
-
-
 // Get and render all .styl files recursively
 gulp.task('stylus', function () {
   return gulp.src(paths.cssInput)
@@ -100,7 +98,6 @@ gulp.task('stylus', function () {
 //
 // Coffee
 //
-
 gulp.task('coffee', function() {
   return gulp.src(paths.coffeeInput, { read: false })
     .pipe(plumber())
@@ -119,7 +116,6 @@ gulp.task('coffee', function() {
 //
 // jade
 //
-
 gulp.task('jade', function() {
   return gulp.src(paths.jadePath)
     .pipe(plumber())
@@ -131,7 +127,6 @@ gulp.task('jade', function() {
 //
 // EJS
 //
-
 gulp.task('ejs', function() {
   return gulp.src(paths.ejsPath)
     .pipe(plumber())
@@ -145,7 +140,6 @@ gulp.task('ejs', function() {
 //
 // Static Assets
 //
-
 gulp.task('assets', function() {
   return gulp.src(paths.assetsPaths, {base: paths.assetsBasePath})
     .pipe(plumber())
@@ -158,7 +152,6 @@ gulp.task('assets', function() {
 //
 // clean
 //
-
 gulp.task('clean', function() {
   return del(paths.cleanPath, { sync: true });
 });
@@ -167,7 +160,6 @@ gulp.task('clean', function() {
 //
 // Watch pre-tasks
 //
-
 gulp.task('watch-pre-tasks', function(callback) {
   runSequence('clean', ['coffee', 'stylus', 'assets', 'ejs', 'jade'], callback);
 });
